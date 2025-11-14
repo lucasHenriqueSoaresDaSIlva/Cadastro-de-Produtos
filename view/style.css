@@ -1,0 +1,146 @@
+/* Definição de Cores e Fontes */
+:root {
+    --cor-fundo: #F5F5F5;            /* Fundo principal claro */
+    --cor-texto: #333333;            /* Texto escuro */
+    --cor-primaria: #007bff;         /* Azul primário (botão Adicionar) */
+    --cor-primaria-hover: #0056b3;
+    --cor-card: #FFFFFF;             /* Fundo do contêiner/card */
+    --cor-borda: #CCCCCC;            /* Borda suave */
+    --sombra-leve: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 1. Estilos Globais e do Body */
+/* ---------------------------------------------------------------- */
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    min-height: 100vh;
+}
+
+h1 {
+    color: var(--cor-primaria);
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+h2 {
+    color: var(--cor-texto);
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--cor-borda);
+    padding-bottom: 5px;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Contêiner principal para centralizar e dar forma de 'card' */
+.app-container {
+    width: 100%;
+    max-width: 600px; /* Limita a largura principal do app */
+    background-color: var(--cor-card);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--sombra-leve);
+}
+
+/* 2. Estilos do Formulário de Entrada (.box) */
+/* ---------------------------------------------------------------- */
+.box {
+    display: flex;
+    gap: 15px; /* Espaço entre os inputs e o botão */
+    align-items: center;
+    padding: 15px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    background-color: #F9F9F9;
+}
+
+input[type="text"], input[type="number"] {
+    flex-grow: 1; /* Ocupa o espaço restante */
+    padding: 10px 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--cor-texto);
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: var(--cor-primaria);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+button {
+    /* O botão é estilizado para ser a ação primária */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--cor-primaria);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s, transform 0.1s;
+    min-width: 100px; /* Garante que o botão não fique muito pequeno */
+}
+
+button:hover {
+    background-color: var(--cor-primaria-hover);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* 3. Estilos da Lista de Produtos (ul#productList) */
+/* ---------------------------------------------------------------- */
+#productList {
+    list-style: none; /* Remove os marcadores de lista */
+    padding: 0;
+    margin-top: 0;
+}
+
+#productList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    background-color: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s;
+}
+
+#productList li:hover {
+    background-color: #F0F8FF; /* Fundo levemente azul no hover */
+}
+
+/* Estilo para preço (se você for envolver o preço em um span no futuro) */
+/* .price {
+    font-weight: bold;
+    color: #28A745; /* Verde para destacar valor
+} */
+
+/* 4. Responsividade */
+/* ---------------------------------------------------------------- */
+@media (max-width: 650px) {
+    /* Para telas menores, empilha os inputs e o botão */
+    .box {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    input[type="text"], input[type="number"], button {
+        width: 100%; /* Faz os elementos ocuparem a largura total */
+        box-sizing: border-box; /* Inclui padding e borda na largura */
+    }
+}
